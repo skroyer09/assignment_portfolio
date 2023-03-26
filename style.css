@@ -177,6 +177,22 @@ header p {
   background-size: cover;
   margin-bottom: 1rem;
   padding: 3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.header_graphics:hover,
+.header_graphics_1:hover,
+.header_graphics_2:hover,
+.header_graphics_3:hover {
+  transform: rotate(20deg);
+}
+
+.header_graphics.rotate,
+.header_graphics_1.rotate,
+.header_graphics_2.rotate,
+.header_graphics_3.rotate {
+  transform: rotate(360deg);
 }
 
 .header_graphics_1 {
