@@ -74,6 +74,7 @@ nav a {
   color: var(--color-accent1);
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 nav a.logo {
@@ -137,22 +138,28 @@ header p {
   line-height: 2rem;
 }
 
-.header_text {
+.header_text,
+.header_text_1 {
   width: 30vw;
   min-width: 300px;
 }
 
-.header_graphics {
+.header_graphics,
+.header_graphics_1 {
   width: 25vw;
   height: 25vw;
   min-width: 250px;
   min-height: 250px;
   border-radius: 10px;
   background-image: url(image/a-man-who-uses-a-computer-inspiration-svgrepo-com.svg);
-  background-color: aqua;
+  background-color: var(--color-accent1);
   background-size: cover;
   margin-bottom: 1rem;
   padding: 3rem;
+}
+
+.header_graphics_1 {
+  background-image: url(image/books-and-people-svgrepo-com.svg);
 }
 
 .header_graphics object {
@@ -167,6 +174,7 @@ header p {
   align-items: center;
   padding: 1rem;
   background-color: #fff;
+  margin-top: 5rem;
 }
 
 #product h2 {
@@ -199,6 +207,7 @@ header p {
 .Learned {
   padding-left: 2rem;
   padding-right: 2rem;
+  margin-top: 5rem;
 }
 
 .Learned h2 {
@@ -215,6 +224,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: var(--color-secondary1);
+  margin-top: 10rem;
 }
 
 footer h2,
