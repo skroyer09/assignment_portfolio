@@ -1,8 +1,11 @@
-/* Mobile-first responsive design */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -17,6 +20,8 @@
 h1,
 h2,
 h3 {
+  font-family: Source Sans Pro;
+  font-weight: bold;
   margin-bottom: 1rem;
   color: var(--color-accent1);
 }
@@ -40,7 +45,7 @@ h3 {
 }
 
 p {
-  font-family: "Poppins", sans-serif;
+  font-family: Source Sans Pro;
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 1.5rem;
@@ -48,14 +53,14 @@ p {
 }
 
 a {
+  font-family: Ubuntu;
   text-decoration: none;
   color: var(--color-primary1);
   cursor: pointer;
 }
 
 a:hover {
-  text-decoration: underline;
-  color: var(--color-primary1);
+  color: var(--color-accent1);
   font-weight: bold;
 }
 
@@ -66,39 +71,50 @@ ul {
 /* Navigation */
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 1rem;
   background-color: var(--color-secondary1);
   color: var(--color-primary1);
 }
 
-nav a {
-  color: var(--color-accent1);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-nav a.logo {
-  font-family: "Noto Serif Display", serif;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav li {
+nav ul li {
   display: inline-block;
-  margin-left: 1rem;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: var(--color-primary1);
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .mobile_btb {
+  display: none;
 }
 
 /* UI Elements */
 button {
   display: inline-block;
+  font-family: Ubuntu;
   height: 3rem;
   padding: 1rem 2rem;
   border: none;
@@ -192,23 +208,49 @@ header p {
   margin-top: 5rem;
 }
 
-#product h2 {
-  font-size: 2rem;
-  margin-bottom: -20rem;
+.pro_btb {
+  background-color: var(--color-primary1);
+  color: var(--color-secondary1);
 }
 
-.product_graphics {
-  height: 400px;
-  background-image: url("https://via.placeholder.com/600x400");
-  background-repeat: no-repeat;
-  background-size: cover;
+#product h2 {
+  font-size: 3rem;
+  color: var(--color-secondary1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .product_text {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  padding: 1rem;
+  padding: 2rem;
+  background-color: var(--color-accent1);
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  animation: slideInUp 1s ease;
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .product_text article {
@@ -216,7 +258,10 @@ header p {
 }
 
 .product_text h3 {
-  font-size: 1;
+  font-size: 2rem;
+  color: var(--color-secondary1);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .Learned {
@@ -261,4 +306,84 @@ footer section.left {
 
 footer section div {
   margin: 0px 1rem 1rem 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  nav .mobile_btb {
+    display: block;
+  }
+
+  nav ul {
+    background: var(--color-accent1);
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 2;
+    transition: right 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 25px;
+  }
+
+  nav ul .mobile_btb {
+    position: absolute;
+    top: 18px;
+    left: 120px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  nav ul .mobile_btb::before,
+  nav ul .mobile_btb::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: translateY(-50%);
+  }
+
+  nav ul .mobile_btb::before {
+    transform: translateY(-50%) rotate(45deg);
+    height: 6px;
+  }
+
+  nav ul .mobile_btb::after {
+    transform: translateY(-50%) rotate(-45deg);
+    height: 6px;
+  }
+
+  .sub-title {
+    font-size: 40px;
+  }
+
+  header h1 {
+    font-size: 3.2rem;
+    line-height: 3.3rem;
+  }
+
+  footer {
+    padding: 2rem;
+    margin-top: 10rem;
+  }
+
+  footer h2 {
+    font-size: 1.5rem;
+  }
+
+  footer section.left {
+    max-width: 100%;
+  }
+
+  footer section div {
+    margin: 0px 0 1rem 0;
+  }
 }

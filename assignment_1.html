@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Responsive Design</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <nav>
       <!-- Menu component layout -->
       <a href="index.html">Home</a>
-      <ul>
-        <li><a href="assignment_1.html">Assignment 1</a></li>
-        <li><a href="assignment_2.html">Assignment 2</a></li>
-        <li><a href="assignment_3.html">Assignment 3</a></li>
+      <ul id="sidemenu">
+        <li><a href="assignment_1.html">Fonts and UI</a></li>
+        <li><a href="assignment_2.html">Colors and animations</a></li>
+        <li><a href="assignment_3.html">Responsive design</a></li>
+        <button class="mobile_btb" onclick="closemenu()"></button>
       </ul>
+      <button class="mobile_btb" onclick="openmenu()">Menu &#x2794;</button>
     </nav>
     <header>
       <div class="header_text_1">
